@@ -10,7 +10,7 @@ const Header = () => (
       <div className="mdl-layout-spacer"></div>
       <nav className="mdl-navigation mdl-layout--large-screen-only">
       <a className="mdl-navigation__link" href="">Jian Rodrigues</a>
-      <a className="mdl-navigation__link" href="">Logout</a>
+      <a className="mdl-navigation__link" href="/login">Logout</a>
       </nav>
   </div>
 </header>

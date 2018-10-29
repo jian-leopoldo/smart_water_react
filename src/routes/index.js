@@ -7,6 +7,7 @@ const Routes = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home} />
+      <Route path="/login" component={Login} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
       <Route path='/locales' component={Events} />
@@ -18,25 +19,25 @@ const Routes = () => (
 const Home = () => (
   <div>
     <h2>
-    <div className="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div className="mdl-card__title">
-        <h2 className="mdl-card__title-text">Welcome</h2>
+      <div className="demo-card-wide mdl-card mdl-shadow--2dp">
+        <div className="mdl-card__title">
+          <h2 className="mdl-card__title-text">Welcome</h2>
+        </div>
+        <div className="mdl-card__supporting-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Mauris sagittis pellentesque lacus eleifend lacinia...
       </div>
-      <div className="mdl-card__supporting-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Mauris sagittis pellentesque lacus eleifend lacinia...
-      </div>
-      <div className="mdl-card__actions mdl-card--border">
-        <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Get Started
+        <div className="mdl-card__actions mdl-card--border">
+          <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Get Started
         </a>
+        </div>
+        <div className="mdl-card__menu">
+          <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i className="material-icons">share</i>
+          </button>
+        </div>
       </div>
-      <div className="mdl-card__menu">
-        <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-          <i className="material-icons">share</i>
-        </button>
-      </div>
-    </div>
 
     </h2>
   </div>
@@ -45,6 +46,35 @@ const Home = () => (
 const About = () => (
   <div>
     <h2>About</h2>
+  </div>
+);
+
+const Login = () => (
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="mdl-layout mdl-js-layout mdl-color--grey-100">
+      <main class="mdl-layout__content">
+        <div class="mdl-card mdl-shadow--6dp">
+          <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+            <h2 class="mdl-card__title-text">Login</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            <form action="#">
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="username" />
+                <label class="mdl-textfield__label" for="username">Username</label>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="password" id="userpass" />
+                <label class="mdl-textfield__label" for="userpass">Password</label>
+              </div>
+            </form>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+          </div>
+        </div>
+      </main>
+    </div>
   </div>
 );
 
