@@ -86,12 +86,9 @@ constructor(props) {
                 </div>
 
                 <div className="mdl-cell mdl-cell--12-col">
-                    <div className="mdl-cell mdl-cell--7-col"></div>
-                    <div className="mdl-cell mdl-cell--4-col">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            Adicionar ponto de monitoramento
-                        </button>
-                    </div>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Adicionar ponto de monitoramento
+                    </button>
                 </div>
 
                 <div className="mdl-cell mdl-cell--4-col"></div>
