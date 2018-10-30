@@ -27,7 +27,7 @@ const Card = (props) => (
 
 
 
-class Events extends Component {
+class Locales extends Component {
 
 
 constructor(props) {
@@ -38,7 +38,7 @@ constructor(props) {
 
 
   componentWillMount(){
-    axios.get('http://localhost:3009/places')
+    axios.get('http://localhost:2000/places')
     .then((response) => {
       // handle success
       console.log(response.data);
@@ -71,4 +71,4 @@ constructor(props) {
   }
 }
 
-export default Events;
+export default Locales;

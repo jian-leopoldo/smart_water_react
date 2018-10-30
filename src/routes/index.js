@@ -1,6 +1,7 @@
 import React from "react";
-import Events from '../components/events'
+import Locales from '../components/locales'
 import Charts from '../components/charts';
+import MonitoringPoints from '../components/monitoringPoints';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Routes = () => (
@@ -9,10 +10,34 @@ const Routes = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
-      <Route path='/locales' component={Events} />
+      <Route path='/locales' component={LocaleRoute} />
       <Route path='/charts' component={Charts} />
     </div>
   </Router>
+);
+
+const LocaleRoute = ({ match }) => (
+  <div>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <Link to={`${match.url}/rendering`}>Rendering with React</Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/components`}>Components</Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
+      </li>
+    </ul>
+
+    <Route path={`${match.url}/:localeId`} component={MonitoringPoints} />
+    <Route
+      exact
+      path={match.url}
+      component={Locales}
+    />
+  </div>
 );
 
 const Home = () => (

@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "places": [
+    {
+      "name": "Lugar legal",
+      "address": "Puta que o pariu",
+      "type": "Empresa",
+      "id": 3
+    },
+    {
+      "name": "Minha casa",
+      "address": "Endereço teste n 1080",
+      "type": "Empresa",
+      "id": 4
+    },
+    {
+      "name": "este",
+      "address": "",
+      "type": "",
+      "id": 5
+    }
+  ]
+}
