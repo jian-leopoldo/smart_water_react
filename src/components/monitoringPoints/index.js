@@ -3,20 +3,20 @@ import axios from 'axios';
 
 
 const Card = (props) => (
-    <div class="mdl-cell mdl-cell--3-col">
+    <div className="mdl-cell mdl-cell--3-col">
         <h2> 
-            <div className="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">{props.title}</h2>
+            <div classNameName="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div classNameName="mdl-card__title">
+                    <h2 classNameName="mdl-card__title-text">{props.title}</h2>
                 </div>
-                <div className="mdl-card__supporting-text">
+                <div classNameName="mdl-card__supporting-text">
                     {props.address}
                 </div>
-                <div className="mdl-card__actions mdl-card--border">
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
+                <div classNameName="mdl-card__actions mdl-card--border">
+                    <a classNameName="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
                     Editar
                     </a>
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
+                    <a classNameName="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
                     Visualizar
                     </a>
                 </div>
@@ -25,49 +25,6 @@ const Card = (props) => (
     </div>
 );
 
-const AlertList = (props) => (
-    <ul class="demo-list-three mdl-list">
-        <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons mdl-list__item-avatar">person</i>
-            <span>Bryan Cranston</span>
-            <span class="mdl-list__item-text-body">
-                Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-                for playing Hal in Malcom in the Middle.
-            </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-            </span>
-        </li>
-        <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons  mdl-list__item-avatar">person</i>
-            <span>Aaron Paul</span>
-            <span class="mdl-list__item-text-body">
-                Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                the "Need For Speed" Movie.
-            </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-            </span>
-        </li>
-        <li class="mdl-list__item mdl-list__item--three-line">
-            <span class="mdl-list__item-primary-content">
-            <i class="material-icons  mdl-list__item-avatar">person</i>
-            <span>Bob Odenkirk</span>
-            <span class="mdl-list__item-text-body">
-                Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
-                character, Bob stars in his own show now, called "Better Call Saul".
-            </span>
-            </span>
-            <span class="mdl-list__item-secondary-content">
-            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-            </span>
-        </li>
-    </ul>
-);
 
 
 
@@ -104,54 +61,70 @@ constructor(props) {
   render() {
     return (
       <div >
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col">
+        <div className="mdl-grid">
+            <div className="mdl-cell mdl-cell--12-col">
                 <h1>{this.state.locales.name}</h1>
                 <h6>{this.state.locales.address}</h6>
             </div>
-                <div class="mdl-cell mdl-cell--6-col">
-                    <ul class="demo-list-three mdl-list">
-                        <li class="mdl-list__item mdl-list__item--three-line">
-                            <span class="mdl-list__item-primary-content">
-                            <i class="material-icons mdl-list__item-avatar">person</i>
-                            <span>Bryan Cranston</span>
-                            <span class="mdl-list__item-text-body">
-                                Bryan Cranston played the role of Walter in Breaking Bad. He is also known
-                                for playing Hal in Malcom in the Middle.
+            <div className="mdl-cell mdl-cell--4-col"> </div>
+
+                <div className="mdl-cell mdl-cell--4-col">
+                    <ul className="demo-list-three mdl-list">
+                        <li className="mdl-list__item mdl-list__item--three-line">
+                            <span className="mdl-list__item-primary-content">
+                            <i className="material-icons mdl-list__item-avatar">warning</i>
+                            <span>Alerta de consumo</span>
+                            <span className="mdl-list__item-text-body">
+                                O consumo de água no banheiro ultrapassou os paraâmetros configurados
                             </span>
                             </span>
-                            <span class="mdl-list__item-secondary-content">
-                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item mdl-list__item--three-line">
-                            <span class="mdl-list__item-primary-content">
-                            <i class="material-icons  mdl-list__item-avatar">person</i>
-                            <span>Aaron Paul</span>
-                            <span class="mdl-list__item-text-body">
-                                Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
-                                the "Need For Speed" Movie.
-                            </span>
-                            </span>
-                            <span class="mdl-list__item-secondary-content">
-                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item mdl-list__item--three-line">
-                            <span class="mdl-list__item-primary-content">
-                            <i class="material-icons  mdl-list__item-avatar">person</i>
-                            <span>Bob Odenkirk</span>
-                            <span class="mdl-list__item-text-body">
-                                Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
-                                character, Bob stars in his own show now, called "Better Call Saul".
-                            </span>
-                            </span>
-                            <span class="mdl-list__item-secondary-content">
-                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                            <span className="mdl-list__item-secondary-content">
+                            <a className="mdl-list__item-secondary-action" href="#"><i className="material-icons">announcement</i></a>
                             </span>
                         </li>
                     </ul>
                 </div>
+
+                <div className="mdl-cell mdl-cell--12-col">
+                    <div className="mdl-cell mdl-cell--7-col"></div>
+                    <div className="mdl-cell mdl-cell--4-col">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Adicionar ponto de monitoramento
+                        </button>
+                    </div>
+                </div>
+
+                <div className="mdl-cell mdl-cell--4-col"></div>
+
+                <div className="mdl-cell mdl-cell--4-col">
+                    <table style={{width: '100%'}} className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <tr>
+                            <th className="mdl-data-table__cell--non-numeric">Ponto de monitoramento</th>
+                            <th>Consumo</th>
+                            <th>Ultimo monitoramento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td className="mdl-data-table__cell--non-numeric">Banheiro</td>
+                            <td>25 Litros/hora</td>
+                            <td>25/08/2018</td>
+                            </tr>
+                            <tr>
+                            <td className="mdl-data-table__cell--non-numeric">Banheiro 2</td>
+                            <td>10 Litros/hora</td>
+                            <td>30/12/2018</td>
+                            </tr>
+                            <tr>
+                            <td className="mdl-data-table__cell--non-numeric">Jardim</td>
+                            <td>67 Litros/hora</td>
+                            <td>hoje</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
         </div>
       </div>
     );
