@@ -1,5 +1,6 @@
 import React from "react";
 import Locales from '../components/locales'
+import FormLocale from '../components/locales/formLocale';
 import Charts from '../components/charts';
 import MonitoringPoints from '../components/monitoringPoints';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -11,6 +12,7 @@ const Routes = () => (
       <Route path="/login" component={Login} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
+      <Route path='/locale/new' component={FormLocale} />
       <Route path='/locales' component={LocaleRoute} />
       <Route path='/charts' component={Charts} />
     </div>

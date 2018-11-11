@@ -38,7 +38,11 @@ constructor(props) {
 
 
   componentWillMount(){
-    axios.get('http://localhost:2000/places')
+    axios.get('http://172.17.0.3:3009/locales',{
+        headers: {
+            'Content-Type': 'application/json',
+          }
+    })
     .then((response) => {
       // handle success
       console.log(response.data);
@@ -48,6 +52,7 @@ constructor(props) {
     })
     .catch((error) => {
       // handle error
+      console.log("erro doido")
       console.log(error);
     })
     .then(function () {
