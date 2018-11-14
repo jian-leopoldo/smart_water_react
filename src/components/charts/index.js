@@ -114,6 +114,12 @@ class Charts extends Component {
                         </i>
                             Buscar
                         </button>
+                        <a className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" href={`/locales/${this.props.match.params.localeId}/manage_monitoring_points`}>
+                            <i class="material-icons">
+                            menu
+                            </i>
+                            Configurações
+                        </a>
                 </form>
             </div>
             <div className="mdl-cell mdl-cell--6-col">

@@ -73,7 +73,7 @@ redirect(){
         // A function to use to confirm navigation with the user (see below)
         getUserConfirmation: (message, callback) => callback(window.confirm(message))
     })   
-    history.push(`/locales/${this.props.match.params.localeId}/monitoring_points`)
+    history.push(`/locales/${this.props.match.params.localeId}/manage_monitoring_points`)
 
 }
 

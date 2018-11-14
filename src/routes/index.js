@@ -3,6 +3,7 @@ import Locales from '../components/locales'
 import FormLocale from '../components/locales/formLocale';
 import Charts from '../components/charts';
 import MonitoringPoints from '../components/monitoringPoints';
+import ManageMonitoringPoint from '../components/monitoringPoints/manageMonitoringPoint';
 import FormMonitoringPoint from '../components/monitoringPoints/formMonitoringPoint';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -25,6 +26,8 @@ const Routes = () => (
 const LocaleRoute = ({ match }) => (
   <div>
     <Route path={`${match.url}/:localeId`} component={MonitoringPoints} />
+    <Route path={`${match.url}/:localeId/charts`} component={Charts} />
+    <Route path={`${match.url}/:localeId/manage_monitoring_points`} component={ManageMonitoringPoint} />
     <Route
       exact
       path={match.url}

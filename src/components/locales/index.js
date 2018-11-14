@@ -17,7 +17,7 @@ const Card = (props) => (
                     <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}`}>
                     Editar
                     </a>
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}`}>
+                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}/charts`}>
                     Visualizar
                     </a>
                 </div>
@@ -59,14 +59,19 @@ constructor(props) {
 
   render() {
     const listItems = this.state.locales.map((locale) =>
-        <Card title={locale.name} 
+        <Card title={locale.title} 
               address={locale.address}
               id={locale.id}/>
     );
     return (
       <div >
         <div class="mdl-grid">
-            {listItems}
+            <div className="mdl-cell mdl-cell--12-col">
+                <a href={`/locale/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                    Novo Local
+                </a>
+            </div>
+                {listItems}
         </div>
       </div>
     );

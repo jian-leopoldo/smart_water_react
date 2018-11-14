@@ -69,68 +69,6 @@ constructor(props) {
                 <h1>{this.state.locales.title}</h1>
                 <h6>{this.state.locales.address}</h6>
             </div>
-
-            <div className="mdl-cell mdl-cell--12-col">
-            </div>
-
-            <div className="mdl-cell mdl-cell--4-col"> </div>
-
-                <div className="mdl-cell mdl-cell--4-col">
-                    <ul className="demo-list-three mdl-list">
-                        <li className="mdl-list__item mdl-list__item--three-line">
-                            <span className="mdl-list__item-primary-content">
-                            <i className="material-icons mdl-list__item-avatar">warning</i>
-                            <span>Alerta de consumo</span>
-                            <span className="mdl-list__item-text-body">
-                                O consumo de água no banheiro ultrapassou os paraâmetros configurados
-                            </span>
-                            </span>
-                            <span className="mdl-list__item-secondary-content">
-                            <a className="mdl-list__item-secondary-action" href="#"><i className="material-icons">announcement</i></a>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mdl-cell mdl-cell--8-col"></div>
-
-                <div className="mdl-cell mdl-cell--12-col">
-                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-                        Adicionar ponto de monitoramento
-                    </a>
-                </div>
-
-                <div className="mdl-cell mdl-cell--4-col"></div>
-
-                <div className="mdl-cell mdl-cell--4-col">
-                    <table style={{width: '100%'}} className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-                        <thead>
-                            <tr>
-                            <th className="mdl-data-table__cell--non-numeric">Ponto de monitoramento</th>
-                            <th>Consumo</th>
-                            <th>Ultimo monitoramento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {
-                          this.state.locales.monitoring_points.map((monitoringPoint) =>
-                            <tr>
-                                <td className="mdl-data-table__cell--non-numeric">{monitoringPoint.title}</td>
-                                <td>{monitoringPoint.value}</td>
-                                <td>{monitoringPoint.last_log}</td>
-                                <td>
-                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} 
-                                       className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-                                        Visualizar
-                                    </a>
-                                </td>
-                            </tr>
-                          )
-                        }
-                        </tbody>
-                    </table>
-                </div>
-
         </div>
       </div>
     );
