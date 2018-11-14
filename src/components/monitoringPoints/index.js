@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import request from '../request';
+import Charts from '../charts/index';
 
 
 const Card = (props) => (
@@ -34,14 +35,16 @@ class MonitoringPoints extends Component {
 constructor(props) {
     super(props);
     this.state = {
-        locales: []
+        locales: {
+            monitoring_points: []
+        }
     };
 }
     
 
 
   componentWillMount(){
-    axios.get('http://localhost:2000/places/' + this.props.match.params.localeId)
+    request.get(`/locales/${this.props.match.params.localeId}/show_monitoring_points`)
     .then((response) => {
       // handle success
       console.log(response.data);
@@ -63,9 +66,13 @@ constructor(props) {
       <div >
         <div className="mdl-grid">
             <div className="mdl-cell mdl-cell--12-col">
-                <h1>{this.state.locales.name}</h1>
+                <h1>{this.state.locales.title}</h1>
                 <h6>{this.state.locales.address}</h6>
             </div>
+
+            <div className="mdl-cell mdl-cell--12-col">
+            </div>
+
             <div className="mdl-cell mdl-cell--4-col"> </div>
 
                 <div className="mdl-cell mdl-cell--4-col">
@@ -85,10 +92,12 @@ constructor(props) {
                     </ul>
                 </div>
 
+                <div className="mdl-cell mdl-cell--8-col"></div>
+
                 <div className="mdl-cell mdl-cell--12-col">
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
                         Adicionar ponto de monitoramento
-                    </button>
+                    </a>
                 </div>
 
                 <div className="mdl-cell mdl-cell--4-col"></div>
@@ -103,21 +112,21 @@ constructor(props) {
                             </tr>
                         </thead>
                         <tbody>
+                        {
+                          this.state.locales.monitoring_points.map((monitoringPoint) =>
                             <tr>
-                            <td className="mdl-data-table__cell--non-numeric">Banheiro</td>
-                            <td>25 Litros/hora</td>
-                            <td>25/08/2018</td>
+                                <td className="mdl-data-table__cell--non-numeric">{monitoringPoint.title}</td>
+                                <td>{monitoringPoint.value}</td>
+                                <td>{monitoringPoint.last_log}</td>
+                                <td>
+                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} 
+                                       className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                                        Visualizar
+                                    </a>
+                                </td>
                             </tr>
-                            <tr>
-                            <td className="mdl-data-table__cell--non-numeric">Banheiro 2</td>
-                            <td>10 Litros/hora</td>
-                            <td>30/12/2018</td>
-                            </tr>
-                            <tr>
-                            <td className="mdl-data-table__cell--non-numeric">Jardim</td>
-                            <td>67 Litros/hora</td>
-                            <td>hoje</td>
-                            </tr>
+                          )
+                        }
                         </tbody>
                     </table>
                 </div>

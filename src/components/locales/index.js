@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import request from '../request';
+
 
 
 const Card = (props) => (
@@ -38,11 +39,7 @@ constructor(props) {
 
 
   componentWillMount(){
-    axios.get('http://172.17.0.3:3009/locales',{
-        headers: {
-            'Content-Type': 'application/json',
-          }
-    })
+    request.get('/locales')
     .then((response) => {
       // handle success
       console.log(response.data);

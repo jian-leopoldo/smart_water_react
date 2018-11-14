@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import request from '../request';
+import createHistory from 'history/createBrowserHistory';
 
 
 class FormMonitoringPoint extends Component {
@@ -32,6 +33,8 @@ handleChangeDescription(e){
         description: e.target.value
     })
 }
+
+
     
 
 
@@ -48,8 +51,7 @@ handleChangeDescription(e){
         }
     })
     .then((response) => {
-      // handle success
-      console.log(response.data);
+        this.redirect()
     })
     .catch((error) => {
       // handle error
@@ -60,6 +62,20 @@ handleChangeDescription(e){
       // always executed
     });
   }
+
+
+redirect(){
+
+    const history = createHistory({
+        basename: "", // The base URL of the app (see below)
+        forceRefresh: true, // Set true to force full page refreshes
+        keyLength: 6, // The length of location.key
+        // A function to use to confirm navigation with the user (see below)
+        getUserConfirmation: (message, callback) => callback(window.confirm(message))
+    })   
+    history.push(`/locales/${this.props.match.params.localeId}/monitoring_points`)
+
+}
 
   render() {
     return (

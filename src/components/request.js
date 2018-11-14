@@ -1,6 +1,6 @@
 import axios from 'axios'; 
 
-const baseURL = 'http://172.17.0.3:3009';
+const baseURL = 'http://172.17.0.4:3009';
 
 // const baseURL = 'http://swstagingsaas.sa-east-1.elasticbeanstalk.com';
 
@@ -16,9 +16,7 @@ const baseURL = 'http://172.17.0.3:3009';
     baseURL: baseURL,
     timeout: 1000,
     headers: {
-        'Content-Type': 'application/json', 
-        "Access-Control-Allow-Origin": "*"
-    }
+        'Content-Type': 'application/json'    }
   });
 
 export default request;
