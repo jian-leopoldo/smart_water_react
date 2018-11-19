@@ -5,7 +5,8 @@ import Charts from '../components/charts';
 import MonitoringPoints from '../components/monitoringPoints';
 import ManageMonitoringPoint from '../components/monitoringPoints/manageMonitoringPoint';
 import FormMonitoringPoint from '../components/monitoringPoints/formMonitoringPoint';
-
+import MonitoringLogs from '../components/monitoringLogs';
+import FormAlert from '../components/alerts/formAlert';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Routes = () => (
@@ -18,6 +19,8 @@ const Routes = () => (
       <Route path='/locale/new' component={FormLocale} />
       <Route path='/locales' component={LocaleRoute} />
       <Route path='/locale/:localeId/monitoring_point/new' component={FormMonitoringPoint} />
+      <Route path='/locale/:localeId/monitoring_points/:monitoringPointId/logs' component={MonitoringLogs} />
+      <Route path='/locale/:localeId/monitoring_points/:monitoringPointId/alert/new' component={FormAlert} />
       <Route path='/charts' component={Charts} />
     </div>
   </Router>
@@ -70,9 +73,12 @@ const About = () => (
 );
 
 const Login = () => (
+  <div className="mdl-grid">
+
+  <div className="mdl-cell mdl-cell--5-col">
+  </div>
   <div className="mdl-cell mdl-cell--4-col">
-    <div className="mdl-layout mdl-js-layout mdl-color--grey-100">
-      <main className="mdl-layout__content">
+
         <div className="mdl-card mdl-shadow--6dp">
           <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
             <h2 className="mdl-card__title-text">Login</h2>
@@ -93,7 +99,6 @@ const Login = () => (
             <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
           </div>
         </div>
-      </main>
     </div>
   </div>
 );

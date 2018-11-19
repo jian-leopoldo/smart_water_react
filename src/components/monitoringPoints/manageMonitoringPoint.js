@@ -86,15 +86,15 @@ constructor(props) {
 
                 <div className="mdl-cell mdl-cell--12-col">
                     <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-                        Adicionar ponto de monitoramento
-                    </a>
-                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-                        Adicionar Alerta
+                        <i class="material-icons">
+                            add
+                        </i>
+                        Novo Ponto de monitoramento
                     </a>
                    
                 </div>
 
-                <div className="mdl-cell mdl-cell--4-col"></div>
+                <div className="mdl-cell mdl-cell--3-col"></div>
 
                 <div className="mdl-cell mdl-cell--4-col">
                     <table style={{width: '100%'}} className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
@@ -113,9 +113,28 @@ constructor(props) {
                                 <td>{monitoringPoint.value}</td>
                                 <td>{monitoringPoint.last_log}</td>
                                 <td>
-                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} 
+                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_points/${monitoringPoint.id}`} 
                                        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                                          <i class="material-icons">
+                                            edit
+                                          </i>
+                                        Editar
+                                    </a>
+                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_points/${monitoringPoint.id}/logs`} 
+                                       className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+                                       style={{marginLeft: '5px', backgroundColor: '#42f4a4'}}>
+                                          <i class="material-icons">
+                                            remove_red_eye
+                                          </i>
                                         Visualizar
+                                    </a>
+                                    <a href={`/locale/${this.props.match.params.localeId}/monitoring_points/${monitoringPoint.id}`} 
+                                       style={{marginLeft: '5px', backgroundColor: '#cc4039'}}
+                                       className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                                         <i class="material-icons">
+                                            delete
+                                          </i>
+                                        Excluir
                                     </a>
                                 </td>
                             </tr>

@@ -67,7 +67,11 @@ constructor(props) {
       <div >
         <div class="mdl-grid">
             <div className="mdl-cell mdl-cell--12-col">
+                <h1>Locais </h1>
                 <a href={`/locale/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                <i class="material-icons">
+                    add
+                </i>
                     Novo Local
                 </a>
             </div>

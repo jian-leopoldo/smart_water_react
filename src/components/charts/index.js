@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import request from '../request';
 import {LineChart, 
         Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, BarChart, Bar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar} from 'recharts';
 
+        
 const data = [
       {name: 'Seg', cozinha: 4000, banheiro1: 2400, amt: 2400},
       {name: 'Ter', cozinha: 3000, banheiro1: 1398, amt: 2210},
@@ -59,27 +60,34 @@ class Charts extends Component {
         this.state = {locales: []};
     }
     
-
-
-  componentWillMount(){
-    axios.get('http://localhost:3009/places')
-    .then((response) => {
-      // handle success
-      console.log(response.data);
-      this.setState({
-          locales: response.data
-      })
-    })
-    .catch((error) => {
-      // handle error
-      console.log(error);
-    })
-    .then(function () {
-      // always executed
-    });
-  }
+    componentWillMount(){
+        request.get(`/locales/${this.props.match.params.localeId}/show_monitoring_points`)
+        .then((response) => {
+          // handle success
+          console.log(response.data);
+          this.setState({
+              locales: response.data
+          })
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+      }
 
   render() {
+    const data = [
+        {name: 'Seg', cozinha: 4000, banheiro1: 2400, amt: 2400},
+        {name: 'Ter', cozinha: 3000, banheiro1: 1398, amt: 2210},
+        {name: 'Qua', cozinha: 2000, banheiro1: 9800, amt: 2290},
+        {name: 'Qui', cozinha: 2780, banheiro1: 3908, amt: 2000},
+        {name: 'Sex', cozinha: 1890, banheiro1: 4800, amt: 2181},
+        {name: 'Sab', cozinha: 2390, banheiro1: 3800, amt: 2500},
+        {name: 'Dom', cozinha: 3490, banheiro1: 4300, amt: 2100},
+    ];
     return (
       <div >
         <div className="mdl-grid">

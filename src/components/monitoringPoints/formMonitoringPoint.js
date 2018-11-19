@@ -35,9 +35,6 @@ handleChangeDescription(e){
 }
 
 
-    
-
-
   componentWillMount(){
 
   }

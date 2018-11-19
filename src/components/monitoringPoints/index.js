@@ -1,33 +1,5 @@
 import React, { Component } from 'react';
 import request from '../request';
-import Charts from '../charts/index';
-
-
-const Card = (props) => (
-    <div className="mdl-cell mdl-cell--3-col">
-        <h2> 
-            <div classNameName="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div classNameName="mdl-card__title">
-                    <h2 classNameName="mdl-card__title-text">{props.title}</h2>
-                </div>
-                <div classNameName="mdl-card__supporting-text">
-                    {props.address}
-                </div>
-                <div classNameName="mdl-card__actions mdl-card--border">
-                    <a classNameName="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
-                    Editar
-                    </a>
-                    <a classNameName="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}`}>
-                    Visualizar
-                    </a>
-                </div>
-            </div>
-        </h2>
-    </div>
-);
-
-
-
 
 class MonitoringPoints extends Component {
 
