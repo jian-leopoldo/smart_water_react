@@ -95,17 +95,11 @@ class Charts extends Component {
                 <h2>Consumo de água em Litros</h2>< br/>
             </div>
 
-            <div className="mdl-cell mdl-cell--6-col">
+            <div className="mdl-cell mdl-cell--3-col">
+            </div>
+
+            <div className="mdl-cell mdl-cell--7-col">
                 <form action="#">
-                        <div className="mdl-textfield mdl-js-textfield">
-                            <label className="mdl-textfield__label" for="sample2">asd...</label>
-                            <select className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" >
-                                <option>Apartamento 1</option>
-                                <option>Empresa 2</option>
-                                <option>Empresa 3</option>
-                            </select>
-                        </div>
-                
                         <div className="mdl-textfield mdl-js-textfield">
                             <label className="mdl-textfield__label" for="sample2">asd...</label>
                             <select className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" >
@@ -116,7 +110,18 @@ class Charts extends Component {
                                 <option>Piscina</option>
                             </select>
                         </div>
-                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                
+                        <div className="mdl-textfield mdl-js-textfield" style={{marginRight: '5px'}}>
+                            <label className="mdl-textfield__label" for="sample2">asd...</label>
+                            <select className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" >
+                                <option>Cozinha</option>
+                                <option>Banheiro1</option>
+                                <option>Banheiro2</option>
+                                <option>Quintal</option>
+                                <option>Piscina</option>
+                            </select>
+                        </div>
+                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={{marginRight: '5px'}}>
                         <i class="material-icons">
                         search
                         </i>
@@ -130,7 +135,7 @@ class Charts extends Component {
                         </a>
                 </form>
             </div>
-            <div className="mdl-cell mdl-cell--6-col">
+            <div className="mdl-cell mdl-cell--2-col">
             </div>
             <div className="mdl-cell mdl-cell--4-col">
                 <LineChart width={600} height={300} data={data}

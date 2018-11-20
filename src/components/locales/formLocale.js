@@ -95,7 +95,7 @@ redirect(){
                         <div className="mdl-card mdl-shadow--8dp mdl-cell--12-col" >
 
                             <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-                                <h2 className="mdl-card__title-text">Novo Local</h2>
+                                <h2 className="mdl-card__title-text">Editar Local</h2>
                             </div>
 
                             <div className="mdl-card__supporting-text">
@@ -104,7 +104,7 @@ redirect(){
                                         <input className="mdl-textfield__input" 
                                                onChange={this.handleChangeTitle}
                                                type="text" id="username" 
-                                               value={this.state.title}/>
+                                               value={'Casa 1'}/>
 
                                         <label className="mdl-textfield__label" htmlFor="username">Titulo</label>
                                     </div>
@@ -113,14 +113,14 @@ redirect(){
                                                type="text" 
                                                id="addres" 
                                                onChange={this.handleChangeAddress}
-                                               value={this.state.address}
+                                               value={'Rua dr Pedrosa 22'}
                                         />
                                         <label className="mdl-textfield__label" htmlFor="addres">Endereço</label>
                                     </div>
                                     <div className="mdl-textfield mdl-js-textfield">
                                         <input className="mdl-textfield__input" type="text" id="description" 
                                                onChange={this.handleChangeDescription}
-                                               value={this.state.description}/>
+                                               value={'apartamento 1101'}/>
                                         <label className="mdl-textfield__label" htmlFor="description">Descrição</label>
                                     </div>
                                 </form>

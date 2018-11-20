@@ -3,23 +3,42 @@ import request from '../request';
 import createHistory from 'history/createBrowserHistory';
 
 
-class FormAlert extends Component {
+class EditLocale extends Component {
 
 
 constructor(props) {
     super(props);
 
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
-    this.handleChangeMaxValue = this.handleChangeMaxValue.bind(this);
-    this.handleChangeType = this.handleChangeType.bind(this);
-    this.createAlert = this.createAlert.bind(this);
+    this.handleChangeAddress = this.handleChangeAddress.bind(this);
+    this.handleChangeDescription = this.handleChangeDescription.bind(this);
+    this.createLocale = this.createLocale.bind(this);
 
     this.state = {
-        alerts: [],
+        locale: [],
         title: '',
-        max_value: '',
-        alert_type: ''
+        address: '',
+        description: ''
     };
+}
+
+handleChangeTitle(e){
+    this.setState({
+        title: e.target.value
+    })
+}
+
+
+handleChangeAddress(e){
+    this.setState({
+        address: e.target.value
+    })
+}
+
+handleChangeDescription(e){
+    this.setState({
+        description: e.target.value
+    })
 }
 
 redirect(){
@@ -31,45 +50,40 @@ redirect(){
         // A function to use to confirm navigation with the user (see below)
         getUserConfirmation: (message, callback) => callback(window.confirm(message))
     })   
-    let uri = `/locales/${this.props.match.params.localeId}/monitoring_points/${this.props.match.params.monitoringPointId}/alerts`
-
-    history.push(uri)
+    history.push(`/locales`)
 
 }
+    
 
- 
+
   componentWillMount(){
-
+    this.getLocale();
   }
 
+  getLocale(){
+    request.get(`/locales/${this.props.match.params.localeId}`)
+    .then((response) => {
+      // handle success
+      this.setState({
+        locale: response.data
+      })
+    })
+    .catch((error) => {
+      // handle error
+      console.log("erro doido")
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+  }
 
-    handleChangeTitle(e){
-        this.setState({
-            title: e.target.value
-        })
-    }
-
-
-    handleChangeMaxValue(e){
-        this.setState({
-            max_value: e.target.value
-        })
-    }
-
-    handleChangeType(e){
-        this.setState({
-            alert_type: e.target.value
-        })
-    }
-
-  createAlert(){
-    let uri = `/locales/${this.props.match.params.localeId}/monitoring_points/${this.props.match.params.monitoringPointId}/alerts`
-
-    request.post(uri,{
-        alert: {
+  createLocale(){
+    request.post('/locales',{
+        locale: {
             title: this.state.title,
-            max_value: this.state.max_value,
-            alert_type: this.state.alert_type
+            address: this.state.address,
+            description: this.state.description
         }
     })
     .then((response) => {
@@ -82,8 +96,8 @@ redirect(){
       console.log(error);
     })
     .then(function () {
-      // alw
-    })
+      // always executed
+    });
   }
 
   render() {
@@ -99,7 +113,7 @@ redirect(){
                         <div className="mdl-card mdl-shadow--8dp mdl-cell--12-col" >
 
                             <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-                                <h2 className="mdl-card__title-text">Novo Alerta</h2>
+                                <h2 className="mdl-card__title-text">Editar Local</h2>
                             </div>
 
                             <div className="mdl-card__supporting-text">
@@ -108,34 +122,30 @@ redirect(){
                                         <input className="mdl-textfield__input" 
                                                onChange={this.handleChangeTitle}
                                                type="text" id="username" 
-                                               value={this.state.title}/>
+                                               value={this.state.locale.title}/>
 
-                                        <label className="mdl-textfield__label" htmlFor="username">Titulo do alerta</label>
+                                        <label className="mdl-textfield__label" htmlFor="username"></label>
                                     </div>
                                     <div className="mdl-textfield mdl-js-textfield">
                                         <input className="mdl-textfield__input" 
                                                type="text" 
                                                id="addres" 
-                                               onChange={this.handleChangeMaxValue}
-                                               value={this.state.max_value}
+                                               onChange={this.handleChangeAddress}
+                                               value={this.state.locale.address}
                                         />
-                                        <label className="mdl-textfield__label" htmlFor="addres">Valor em litros para que o alerta seja emitido</label>
+                                        <label className="mdl-textfield__label" htmlFor="addres"></label>
                                     </div>
                                     <div className="mdl-textfield mdl-js-textfield">
-                                        <label >Tipo do alerta</label>
-                                        <label className="mdl-textfield__label" for="sample2">asd...</label>
-                                        <select className="mdl-textfield__input" type="text" value={this.state.alert_type}
-                                                onChange={this.handleChangeType} id="sample2" >
-                                            <option>Inicial</option>
-                                            <option>Intermediário</option>
-                                            <option>Máximo</option>
-                                        </select>
+                                        <input className="mdl-textfield__input" type="text" id="description" 
+                                               onChange={this.handleChangeDescription}
+                                               value={this.state.locale.description}/>
+                                        <label className="mdl-textfield__label" htmlFor="description"></label>
                                     </div>
                                 </form>
                             </div>
                             <div className="mdl-card__actions mdl-card--border">
                                 <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-                                        onClick={this.createAlert}>
+                                        onClick={this.createLocale}>
                                     Salvar
                                 </button>
                             </div>
@@ -150,4 +160,4 @@ redirect(){
   }
 }
 
-export default FormAlert;
+export default EditLocale;

@@ -9,8 +9,13 @@ const Header = () => (
       <span className="mdl-layout-title">SmartWater</span>
       <div className="mdl-layout-spacer"></div>
       <nav className="mdl-navigation mdl-layout--large-screen-only">
-      <a className="mdl-navigation__link" href="">Jian Rodrigues</a>
-      <a className="mdl-navigation__link" href="/login">Logout</a>
+      <a className="mdl-navigation__link" href="">José da Silva</a>
+      <a className="mdl-navigation__link" href="/login">    
+          <i class="material-icons" style={{marginRight: '5px'}}>
+            arrow_back
+          </i>
+          Sair
+      </a>
       </nav>
   </div>
 </header>
@@ -18,12 +23,32 @@ const Header = () => (
 
 const Drawer = () => (
   <div className="mdl-layout__drawer">
-    <span className="mdl-layout-title">Jian Rodrigues</span>
+    <span className="mdl-layout-title">José da Silva</span>
     <nav className="mdl-navigation">
-        <a className="mdl-navigation__link" href="/charts">Gráficos</a>
-        <a className="mdl-navigation__link" href="/locales">Locais</a>
-        <a className="mdl-navigation__link" href="">Pontos de monitoramento</a>
-        <a className="mdl-navigation__link" href="">Link</a>
+        <a className="mdl-navigation__link" href="/charts">
+          <i class="material-icons" style={{marginRight: '5px'}}>
+          account_circle
+          </i>
+          Meu Perfil
+        </a>
+        <a className="mdl-navigation__link" href="/locales">
+          <i class="material-icons" style={{marginRight: '5px'}}>
+            assignment
+          </i>
+            Gráficos
+          </a>
+        <a className="mdl-navigation__link" href="/locales">
+          <i class="material-icons" style={{marginRight: '5px'}}>
+            home
+          </i>
+          Locais
+         </a>
+        <a className="mdl-navigation__link" href="">
+          <i class="material-icons" style={{marginRight: '5px'}}>
+            arrow_back
+          </i>
+          Sair
+        </a>
     </nav>
   </div>
 );

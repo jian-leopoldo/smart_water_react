@@ -7,20 +7,25 @@ import ManageMonitoringPoint from '../components/monitoringPoints/manageMonitori
 import FormMonitoringPoint from '../components/monitoringPoints/formMonitoringPoint';
 import MonitoringLogs from '../components/monitoringLogs';
 import FormAlert from '../components/alerts/formAlert';
+import Alerts from '../components/alerts';
+import EditLocale from '../components/locales/editLocale';
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Routes = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={Signup} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
       <Route path='/locale/new' component={FormLocale} />
       <Route path='/locales' component={LocaleRoute} />
+      <Route path='/locale/:localeId/edit' component={EditLocale} />
       <Route path='/locale/:localeId/monitoring_point/new' component={FormMonitoringPoint} />
       <Route path='/locale/:localeId/monitoring_points/:monitoringPointId/logs' component={MonitoringLogs} />
       <Route path='/locale/:localeId/monitoring_points/:monitoringPointId/alert/new' component={FormAlert} />
+      <Route path='/locale/:localeId/monitoring_points/:monitoringPointId/alerts' component={Alerts} />
       <Route path='/charts' component={Charts} />
     </div>
   </Router>
@@ -93,10 +98,47 @@ const Login = () => (
                 <input className="mdl-textfield__input" type="password" id="userpass" />
                 <label className="mdl-textfield__label" htmlFor="userpass">Password</label>
               </div>
-            </form>
-          </div>
-          <div className="mdl-card__actions mdl-card--border">
             <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in</button>
+            </form>
+         
+          </div>
+          <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cadastra-se</button>                  
+        </div>
+    </div>
+  </div>
+);
+const Signup = () => (
+  <div className="mdl-grid">
+
+  <div className="mdl-cell mdl-cell--5-col">
+  </div>
+  <div className="mdl-cell mdl-cell--4-col">
+
+        <div className="mdl-card mdl-shadow--6dp">
+          <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
+            <h2 className="mdl-card__title-text">José da Silva</h2>
+          </div>
+          <div className="mdl-card__supporting-text">
+            <form action="#">
+              <div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" value='jose@gmail.com'id="username" />
+                <label className="mdl-textfield__label" htmlFor="username">Email</label>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" value='José da Silva' id="username" />
+                <label className="mdl-textfield__label" htmlFor="username">Nome </label>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="password" id="userpass" />
+                <label className="mdl-textfield__label" htmlFor="userpass">Senha</label>
+              </div>
+              <div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="password" id="userpass" />
+                <label className="mdl-textfield__label" htmlFor="userpass">Confirme a senha</label>
+              </div>
+            <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Salvar</button>
+            </form>
+         
           </div>
         </div>
     </div>

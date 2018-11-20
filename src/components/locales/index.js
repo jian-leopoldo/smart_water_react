@@ -14,11 +14,14 @@ const Card = (props) => (
                     {props.address}
                 </div>
                 <div className="mdl-card__actions mdl-card--border">
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}`}>
+                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locale/${props.id}/edit`}>
                     Editar
                     </a>
                     <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}/charts`}>
                     Visualizar
+                    </a>
+                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href={`/locales/${props.id}/charts`} style={{color: 'red'}}>
+                    Excluir
                     </a>
                 </div>
             </div>
