@@ -9,6 +9,7 @@ import MonitoringLogs from '../components/monitoringLogs';
 import FormAlert from '../components/alerts/formAlert';
 import Alerts from '../components/alerts';
 import EditLocale from '../components/locales/editLocale';
+import Login from '../components/authentication/login';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -16,7 +17,8 @@ const Routes = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home} />
-      <Route path="/login" component={Signup} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
       <Route path='/locale/new' component={FormLocale} />
@@ -77,7 +79,7 @@ const About = () => (
   </div>
 );
 
-const Login = () => (
+const Logins = () => (
   <div className="mdl-grid">
 
   <div className="mdl-cell mdl-cell--5-col">

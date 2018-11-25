@@ -12,11 +12,15 @@ const baseURL = 'http://172.17.0.3:3009';
 //             'X-Admin-Token': token}
 // });
 
+const userData = JSON.parse(sessionStorage.getItem('user_info'));
+
   const request = axios.create({
     baseURL: baseURL,
     timeout: 1000,
     headers: {
-        'Content-Type': 'application/json'    }
+        'Content-Type': 'application/json',
+        'X-Admin-Email': userData !== null ? userData.email : '',
+        'X-Admin-Token': userData !== null ? userData.token : ''}
   });
 
 export default request;

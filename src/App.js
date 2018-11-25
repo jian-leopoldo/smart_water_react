@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Routes from './routes';
 
+const LoggedIn = sessionStorage.getItem('user_info') !== null ? true : false;
+
+const userData = JSON.parse(sessionStorage.getItem('user_info')) !== null ? JSON.parse(sessionStorage.getItem('user_info')) : '';
+
 const Header = () => (
   <header className="mdl-layout__header">
   <div className="mdl-layout__header-row">
@@ -23,7 +27,7 @@ const Header = () => (
 
 const Drawer = () => (
   <div className="mdl-layout__drawer">
-    <span className="mdl-layout-title">José da Silva</span>
+    <span className="mdl-layout-title">{userData.email}</span>
     <nav className="mdl-navigation">
         <a className="mdl-navigation__link" href="/charts">
           <i class="material-icons" style={{marginRight: '5px'}}>
@@ -59,7 +63,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <Header />
+          { LoggedIn ? <Header /> : ''}
           <Drawer />
           <main className="mdl-layout__content">
             <div className="page-content"><Routes /></div>
