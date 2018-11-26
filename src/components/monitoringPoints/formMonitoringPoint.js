@@ -87,7 +87,7 @@ redirect(){
                         <div className="mdl-card mdl-shadow--8dp mdl-cell--12-col" >
 
                             <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-                                <h2 className="mdl-card__title-text">Editar Ponto de monitoramento</h2>
+                                <h2 className="mdl-card__title-text">Novo Ponto de monitoramento</h2>
                             </div>
 
                             <div className="mdl-card__supporting-text">
@@ -96,14 +96,14 @@ redirect(){
                                         <input className="mdl-textfield__input" 
                                                onChange={this.handleChangeTitle}
                                                type="text" id="username" 
-                                               value={'Banheiro 1'}/>
+                                               value={this.state.title}/>
 
                                         <label className="mdl-textfield__label" htmlFor="username">Titulo</label>
                                     </div>
                                     <div className="mdl-textfield mdl-js-textfield">
                                         <input className="mdl-textfield__input" type="text" id="description" 
                                                onChange={this.handleChangeDescription}
-                                               value={'Banheiro 1'}/>
+                                               value={this.state.description}/>
                                         <label className="mdl-textfield__label" htmlFor="description">Descrição</label>
                                     </div>
                                 </form>

@@ -77,9 +77,8 @@ redirect(){
     })
     .then((response) => {
       // handle success
-      console.log(response)
-      this.sessionCreate({email: response.data.email,
-                          token: response.data.authentication_token})
+      this.sessionCreate({email: response.data.response.email,
+                          token: response.data.response.authentication_token})
       this.redirect();
     })
     .catch((error) => {

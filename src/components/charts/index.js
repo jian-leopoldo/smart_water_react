@@ -5,7 +5,7 @@ import {LineChart,
 
         
 const data = [
-      {name: 'Seg', cozinha: 4000, banheiro1: 2400, amt: 2400},
+      {name: 'Seg', cozinha: 30, banheiro1: 2400, amt: 2400},
       {name: 'Ter', cozinha: 3000, banheiro1: 1398, amt: 2210},
       {name: 'Qua', cozinha: 2000, banheiro1: 9800, amt: 2290},
       {name: 'Qui', cozinha: 2780, banheiro1: 3908, amt: 2000},
@@ -27,40 +27,45 @@ const data2 = [
 
 
 
-const Card = (props) => (
-    <div class="mdl-cell mdl-cell--3-col">
-        <h2> 
-            <div className="demo-card-wide mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title">
-                    <h2 className="mdl-card__title-text">{props.title}</h2>
-                </div>
-                <div className="mdl-card__supporting-text">
-                    {props.address}
-                </div>
-                <div className="mdl-card__actions mdl-card--border">
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Editar
-                    </a>
-                    <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                    Visualizar
-                    </a>
-                </div>
-            </div>
-        </h2>
-    </div>
-);
-
-
-
 class Charts extends Component {
 
 
     constructor(props) {
         super(props);
-        this.state = {locales: []};
+        this.handleChangeId1 = this.handleChangeId1.bind(this);
+        this.handleChangeId2 = this.handleChangeId2.bind(this);
+        this.getChartData   = this.getChartData.bind(this);
+        this.state = {
+            locales: {
+                monitoring_points: []
+            },
+            chart_data: [],
+            id_1: '',
+            id_2: ''
+        };
+    }
+
+    getChartData(){
+        console.log(this.props.match.params.localeId);
+        request.get(`/locales/${this.props.match.params.localeId}/get_charts_data?id_1=${this.state.id_1}&id_2=${this.state.id_2}`)
+        .then((response) => {
+          // handle success
+          console.log(response.data);
+          this.setState({
+            chart_data: response.data
+          })
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
     }
     
     componentWillMount(){
+        this.getChartData()
         request.get(`/locales/${this.props.match.params.localeId}/show_monitoring_points`)
         .then((response) => {
           // handle success
@@ -78,9 +83,21 @@ class Charts extends Component {
         });
       }
 
+      handleChangeId1(e){
+        this.setState({
+            id_1: e.target.value
+        })
+     }
+
+      handleChangeId2(e){
+        this.setState({
+            id_2: e.target.value
+        })
+     }
+
   render() {
     const data = [
-        {name: 'Seg', cozinha: 4000, banheiro1: 2400, amt: 2400},
+        {name: 'Seg', cozinha: 30, banheiro1: 2400, amt: 2400},
         {name: 'Ter', cozinha: 3000, banheiro1: 1398, amt: 2210},
         {name: 'Qua', cozinha: 2000, banheiro1: 9800, amt: 2290},
         {name: 'Qui', cozinha: 2780, banheiro1: 3908, amt: 2000},
@@ -88,6 +105,11 @@ class Charts extends Component {
         {name: 'Sab', cozinha: 2390, banheiro1: 3800, amt: 2500},
         {name: 'Dom', cozinha: 3490, banheiro1: 4300, amt: 2100},
     ];
+    const listItems = this.state.locales.monitoring_points.map((point) =>
+    <option value={point.id}>{point.title}</option>
+
+    );
+
     return (
       <div >
         <div className="mdl-grid">
@@ -101,27 +123,19 @@ class Charts extends Component {
             <div className="mdl-cell mdl-cell--7-col">
                 <form action="#">
                         <div className="mdl-textfield mdl-js-textfield">
-                            <label className="mdl-textfield__label" for="sample2">asd...</label>
-                            <select className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" >
-                                <option>Cozinha</option>
-                                <option>Banheiro1</option>
-                                <option>Banheiro2</option>
-                                <option>Quintal</option>
-                                <option>Piscina</option>
+                            <label className="mdl-textfield__label" for="sample2">Pontos de monitoramento</label>
+                            <select className="mdl-textfield__input" onChange={this.handleChangeId1} value={this.state.id_1} type="text" id="sample2" >
+                                {listItems}
                             </select>
                         </div>
                 
                         <div className="mdl-textfield mdl-js-textfield" style={{marginRight: '5px'}}>
-                            <label className="mdl-textfield__label" for="sample2">asd...</label>
-                            <select className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" >
-                                <option>Cozinha</option>
-                                <option>Banheiro1</option>
-                                <option>Banheiro2</option>
-                                <option>Quintal</option>
-                                <option>Piscina</option>
+                            <label className="mdl-textfield__label" for="sample2">Pontos de monitoramento</label>
+                            <select className="mdl-textfield__input" type="text" onChange={this.handleChangeId2} value={this.state.id_2} id="sample2" >
+                                {listItems}
                             </select>
                         </div>
-                        <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={{marginRight: '5px'}}>
+                        <button onClick={this.getChartData} className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style={{marginRight: '5px'}}>
                         <i class="material-icons">
                         search
                         </i>
@@ -138,7 +152,7 @@ class Charts extends Component {
             <div className="mdl-cell mdl-cell--2-col">
             </div>
             <div className="mdl-cell mdl-cell--4-col">
-                <LineChart width={600} height={300} data={data}
+                <LineChart width={600} height={300} data={this.state.chart_data}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
@@ -150,14 +164,14 @@ class Charts extends Component {
                 </LineChart>
             </div>
             <div className="mdl-cell mdl-cell--4-col">
-                <BarChart width={600} height={300} data={data}
+                <BarChart width={600} height={300} data={this.state.chart_data}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis dataKey="name"/>
                     <YAxis/>
                     <Tooltip/>
                     <Legend />
-                    <Bar dataKey="cozinha" fill="#8884d8" />
+                    <Bar dataKey='Galpão' fill="#8884d8" />
                     <Bar dataKey="banheiro1" fill="#82ca9d" />
                 </BarChart>
             </div>

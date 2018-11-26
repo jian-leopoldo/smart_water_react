@@ -19,8 +19,8 @@ const userData = JSON.parse(sessionStorage.getItem('user_info'));
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json',
-        'X-Admin-Email': userData !== null ? userData.email : '',
-        'X-Admin-Token': userData !== null ? userData.token : ''}
+        'email': userData !== null ? userData.email : '',
+        'token': userData !== null ? userData.token : ''}
   });
 
 export default request;
