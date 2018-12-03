@@ -41,7 +41,9 @@ class Charts extends Component {
             },
             chart_data: [],
             id_1: '',
-            id_2: ''
+            id_2: '',
+            chart_text1 : '',
+            chart_text2 : ''
         };
     }
 
@@ -84,13 +86,16 @@ class Charts extends Component {
       }
 
       handleChangeId1(e){
+       
         this.setState({
+            chart_text1: e.target.options[e.target.selectedIndex].text,
             id_1: e.target.value
         })
      }
 
       handleChangeId2(e){
         this.setState({
+            chart_text2: e.target.options[e.target.selectedIndex].text,
             id_2: e.target.value
         })
      }
@@ -159,8 +164,8 @@ class Charts extends Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     <Legend />
-                    <Line type="monotone" dataKey="cozinha" stroke="#8884d8" activeDot={{r: 8}}/>
-                    <Line type="monotone" dataKey="banheiro1" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey={this.state.chart_text2}  stroke="#8884d8" activeDot={{r: 8}}/>
+                    <Line type="monotone" dataKey={this.state.chart_text1}  stroke="#82ca9d" />
                 </LineChart>
             </div>
             <div className="mdl-cell mdl-cell--4-col">
@@ -171,8 +176,8 @@ class Charts extends Component {
                     <YAxis/>
                     <Tooltip/>
                     <Legend />
-                    <Bar dataKey='Galpão' fill="#8884d8" />
-                    <Bar dataKey="banheiro1" fill="#82ca9d" />
+                    <Bar dataKey={this.state.chart_text2} fill="#8884d8" />
+                    <Bar dataKey={this.state.chart_text1} fill="#82ca9d" />
                 </BarChart>
             </div>
             

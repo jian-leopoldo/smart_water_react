@@ -120,7 +120,7 @@ redirect(){
                   </form>
                
                 </div>
-                <button className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Cadastra-se</button>                  
+                <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/signup">Cadastra-se</a>                  
               </div>
           </div>
         </div>

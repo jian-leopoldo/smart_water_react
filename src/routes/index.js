@@ -10,6 +10,8 @@ import FormAlert from '../components/alerts/formAlert';
 import Alerts from '../components/alerts';
 import EditLocale from '../components/locales/editLocale';
 import Login from '../components/authentication/login';
+import Logout from '../components/authentication/logout';
+
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -18,6 +20,7 @@ const Routes = () => (
     <div>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/logout" component={Logout} />
       <Route path="/signup" component={Signup} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
@@ -118,16 +121,16 @@ const Signup = () => (
 
         <div className="mdl-card mdl-shadow--6dp">
           <div className="mdl-card__title mdl-color--primary mdl-color-text--white">
-            <h2 className="mdl-card__title-text">José da Silva</h2>
+            <h2 className="mdl-card__title-text">Cadastre-se</h2>
           </div>
           <div className="mdl-card__supporting-text">
             <form action="#">
               <div className="mdl-textfield mdl-js-textfield">
-                <input className="mdl-textfield__input" type="text" value='jose@gmail.com'id="username" />
+                <input className="mdl-textfield__input" type="text" value=''id="username" />
                 <label className="mdl-textfield__label" htmlFor="username">Email</label>
               </div>
               <div className="mdl-textfield mdl-js-textfield">
-                <input className="mdl-textfield__input" type="text" value='José da Silva' id="username" />
+                <input className="mdl-textfield__input" type="text" value='' id="username" />
                 <label className="mdl-textfield__label" htmlFor="username">Nome </label>
               </div>
               <div className="mdl-textfield mdl-js-textfield">

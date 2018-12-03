@@ -44,7 +44,7 @@ constructor(props) {
             </div>
 
             <div className="mdl-cell mdl-cell--12-col">
-                <a href={`/locale/${this.props.match.params.localeId}/monitoring_point/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                <a href={`/locale/${this.props.match.params.localeId}/monitoring_points/${this.props.match.params.monitoringPointId}/alert/new`} className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
                     <i class="material-icons">
                         add
                     </i>

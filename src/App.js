@@ -13,7 +13,7 @@ const Header = () => (
       <span className="mdl-layout-title">SmartWater</span>
       <div className="mdl-layout-spacer"></div>
       <nav className="mdl-navigation mdl-layout--large-screen-only">
-      <a className="mdl-navigation__link" href="">José da Silva</a>
+      <a className="mdl-navigation__link" href="">{userData.email}</a>
       <a className="mdl-navigation__link" href="/login">    
           <i class="material-icons" style={{marginRight: '5px'}}>
             arrow_back
