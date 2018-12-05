@@ -7,7 +7,8 @@ class MonitoringLogs extends Component {
 constructor(props) {
     super(props);
     this.state = {
-        logs: []
+        logs: [],
+        monitoring: {}
     };
 }
     
@@ -27,6 +28,22 @@ constructor(props) {
     .then(function () {
       // always executed
     });
+
+    request.get(`/locales/${this.props.match.params.localeId}/monitoring_points/${this.props.match.params.monitoringPointId}`)
+    .then((response) => {
+      // handle success
+      console.log(response.data);
+      this.setState({
+        monitoring: response.data
+      })
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
   }
 
   render() {
@@ -36,7 +53,7 @@ constructor(props) {
             <div className="mdl-cell mdl-cell--4-col">
             </div>
             <div className="mdl-cell mdl-cell--12-col">
-                <h1>Banheiro 1</h1>
+                <h1>{this.state.monitoring.title}</h1>
             </div>
 
             <div className="mdl-cell mdl-cell--4-col">

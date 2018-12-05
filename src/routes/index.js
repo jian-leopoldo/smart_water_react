@@ -11,6 +11,8 @@ import Alerts from '../components/alerts';
 import EditLocale from '../components/locales/editLocale';
 import Login from '../components/authentication/login';
 import Logout from '../components/authentication/logout';
+import Signup from '../components/authentication/signup';
+
 
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -18,7 +20,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Routes = () => (
   <Router>
     <div>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Login} />
       <Route path="/login" component={Login} />
       <Route path="/logout" component={Logout} />
       <Route path="/signup" component={Signup} />
@@ -46,33 +48,6 @@ const LocaleRoute = ({ match }) => (
       path={match.url}
       component={Locales}
     />
-  </div>
-);
-
-const Home = () => (
-  <div>
-    <h2>
-      <div className="demo-card-wide mdl-card mdl-shadow--2dp">
-        <div className="mdl-card__title">
-          <h2 className="mdl-card__title-text">Welcome</h2>
-        </div>
-        <div className="mdl-card__supporting-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Mauris sagittis pellentesque lacus eleifend lacinia...
-      </div>
-        <div className="mdl-card__actions mdl-card--border">
-          <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            Get Started
-        </a>
-        </div>
-        <div className="mdl-card__menu">
-          <button className="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-            <i className="material-icons">share</i>
-          </button>
-        </div>
-      </div>
-
-    </h2>
   </div>
 );
 
@@ -112,7 +87,7 @@ const Logins = () => (
     </div>
   </div>
 );
-const Signup = () => (
+const Signup2 = () => (
   <div className="mdl-grid">
 
   <div className="mdl-cell mdl-cell--5-col">

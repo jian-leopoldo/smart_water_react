@@ -34,7 +34,8 @@ constructor(props) {
     super(props);
     this.state = {
         locales: {
-            monitoring_points: []
+            monitoring_points: [],
+            alerts: []
         }
     };
 }
@@ -63,24 +64,28 @@ constructor(props) {
       <div >
         <div className="mdl-grid">
 
-            <div className="mdl-cell mdl-cell--4-col"> </div>
+                {this.state.locales.alerts.map((alert) =>
+                    <div className="mdl-cell mdl-cell--12-col">
 
-                <div className="mdl-cell mdl-cell--4-col">
-                    <ul className="demo-list-three mdl-list">
-                        <li className="mdl-list__item mdl-list__item--three-line">
-                            <span className="mdl-list__item-primary-content">
-                            <i className="material-icons mdl-list__item-avatar">warning</i>
-                            <span>Alerta de consumo</span>
-                            <span className="mdl-list__item-text-body">
-                                O consumo de água no banheiro ultrapassou os paraâmetros configurados
-                            </span>
-                            </span>
-                            <span className="mdl-list__item-secondary-content">
-                            <a className="mdl-list__item-secondary-action" href="#"><i className="material-icons">announcement</i></a>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+                    <div className="mdl-cell mdl-cell--4-col" style={{marginLeft: '650px'}}>
+                        <ul className="demo-list-three mdl-list">
+                            <li className="mdl-list__item mdl-list__item--three-line">
+                                <span className="mdl-list__item-primary-content">
+                                <i className="material-icons mdl-list__item-avatar">warning</i>
+                                <span>{alert.title}</span>
+                                <span className="mdl-list__item-text-body">
+                                    O consumo de água no {alert.monitoring_title} ultrapassou os parâmetros configurados de {alert.max_value}
+                                </span>
+                                </span>
+                                <span className="mdl-list__item-secondary-content">
+                                <a className="mdl-list__item-secondary-action" href="#"><i className="material-icons">announcement</i></a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div><br/>
+                    </div>
+                    )
+                 }
 
                 <div className="mdl-cell mdl-cell--8-col"></div>
 

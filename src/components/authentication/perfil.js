@@ -3,7 +3,7 @@ import request from '../request';
 import createHistory from 'history/createBrowserHistory';
 
 
-class Signup extends Component {
+class Perfil extends Component {
 
 
 constructor(props) {
@@ -43,7 +43,26 @@ redirect(){
 
  
   componentWillMount(){
-
+    request.get(`/user/${this.props.match.params.userId}`,{
+        user: {
+            email: this.state.email,
+            name: this.state.name,
+            password: this.state.password
+        }
+    })
+    .then((response) => {
+      // handle success
+      this.redirect();
+    })
+    .catch((error) => {
+        console.log(error)
+        this.setState({
+            errorMessage: 'Preencha corretamente os dados'
+          })
+    })
+    .then(function () {
+      // alw
+    })
   }
 
 
@@ -73,9 +92,9 @@ redirect(){
     }
 
   createUser(){
-    let uri = `/create_user`
+    let uri = `/user/${match}`
 
-    request.post(uri,{
+    request.patch(uri,{
         user: {
             email: this.state.email,
             name: this.state.name,
@@ -139,4 +158,4 @@ redirect(){
   }
 }
 
-export default Signup;
+export default Perfil;

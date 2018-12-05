@@ -39,7 +39,10 @@ class Charts extends Component {
             locales: {
                 monitoring_points: []
             },
-            chart_data: [],
+            chart_data: {
+                array_1: [],
+                array_2: []
+            },
             id_1: '',
             id_2: '',
             chart_text1 : '',
@@ -157,7 +160,7 @@ class Charts extends Component {
             <div className="mdl-cell mdl-cell--2-col">
             </div>
             <div className="mdl-cell mdl-cell--4-col">
-                <LineChart width={600} height={300} data={this.state.chart_data}
+                <LineChart width={600} height={300} data={this.state.chart_data.array_1}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <XAxis dataKey="name"/>
                     <YAxis/>
@@ -169,7 +172,7 @@ class Charts extends Component {
                 </LineChart>
             </div>
             <div className="mdl-cell mdl-cell--4-col">
-                <BarChart width={600} height={300} data={this.state.chart_data}
+                <BarChart width={600} height={300} data={this.state.chart_data.array_1}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <XAxis dataKey="name"/>
@@ -179,10 +182,10 @@ class Charts extends Component {
                     <Bar dataKey={this.state.chart_text2} fill="#8884d8" />
                     <Bar dataKey={this.state.chart_text1} fill="#82ca9d" />
                 </BarChart>
-            </div>
+            </div><br />
             
             <div className="mdl-cell mdl-cell--4-col">
-                <RadarChart cx={300} cy={150} outerRadius={150} width={500} height={500} data={data2}>
+                <RadarChart cx={300} cy={300} outerRadius={150} width={500} height={500} data={this.state.chart_data.array_2}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis/>
